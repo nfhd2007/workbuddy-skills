@@ -1,0 +1,46 @@
+{
+  "page": 1,
+  "kind": "reading",
+  "text": "Reading Comprehension  Section C  Directions: There are 2 passages in this section. ... 26. What makes women blind to the deceptive nature of high heels? A. Their wish to improve their appearance. B. ... 剩余时间 44:58 下一题 答题卡 提交试卷",
+  "timer": {
+    "mode": "countdown",
+    "display": "剩余时间 44:58",
+    "remainingSeconds": 2698,
+    "autoSubmit": true,
+    "totalQuestions": 40,
+    "answeredQuestions": 0
+  },
+  "questions": [
+    {
+      "no": 26,
+      "type": "single",
+      "stem": "What makes women blind to the deceptive nature of high heels?",
+      "options": [
+        { "letter": "A", "text": "Their wish to improve their appearance.", "x": 640, "y": 412 },
+        { "letter": "B", "text": "Their attempt to show off their status.", "x": 640, "y": 448 },
+        { "letter": "C", "text": "The rich variety of high heel styles.", "x": 640, "y": 484 },
+        { "letter": "D", "text": "The multi-functional use of high heels.", "x": 640, "y": 520 }
+      ]
+    },
+    {
+      "no": 27,
+      "type": "single",
+      "stem": "The author's presentation of the positive side of high heels is meant to ______.",
+      "options": [
+        { "letter": "A", "text": "be fair to the fashion industry", "x": 640, "y": 620 },
+        { "letter": "B", "text": "poke fun at women", "x": 640, "y": 656 },
+        { "letter": "C", "text": "be ironic", "x": 640, "y": 692 },
+        { "letter": "D", "text": "make his/her point convincing", "x": 640, "y": 728 }
+      ]
+    }
+  ],
+  "inputs": [
+    { "no": 41, "x": 900, "y": 700 }
+  ],
+  "nav": {
+    "next": { "x": 1600, "y": 980 },
+    "card": { "x": 1480, "y": 40 },
+    "submit": { "x": 1640, "y": 40 },
+    "confirm": { "x": 1100, "y": 700 }
+  }
+}

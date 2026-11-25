@@ -1,0 +1,11 @@
+# 运行产物（含考试内容、截图、账号页面数据，不要提交）
+shots/
+audio/
+scratch/
+.scratch/
+.archive/
+answers/*.json
+itest_*.json
+itest_*.png
+*.log
+node_modules/

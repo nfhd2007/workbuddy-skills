@@ -1,0 +1,16 @@
+{
+  "26": { "type": "single", "answer": ["A"] },
+  "27": { "type": "single", "answer": ["C"] },
+  "28": { "type": "multi", "answer": ["A", "C"] },
+  "1": { "type": "banked", "answer": ["C"] },
+  "17": { "type": "matching", "answer": ["L"] },
+  "3": { "type": "blank", "answer": ["round"] },
+  "41": {
+    "type": "text",
+    "text": "改写后的译文或作文；注意不要保留「首先/其次/综上所述」这类套话，长短句要拉开"
+  },
+  "42": {
+    "type": "text",
+    "texts": ["第一空的答案", "第二空的答案"]
+  }
+}
