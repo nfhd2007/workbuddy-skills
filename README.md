@@ -76,7 +76,7 @@ python scripts/build_index.py         # 更新 INDEX.md / skills.json
 
 见 [INDEX.md](INDEX.md)（自动生成）与 [skills.json](skills.json)（供脚本消费）。
 
-当前收录 5 个技能：教育类 4 个（学习通、智慧树、知到、iTEST 助手）与平台类 1 个（夸克分享技能安装器），完整列表见 [INDEX.md](INDEX.md)。技能版权归各作者，仓库根目录的 MIT 许可仅覆盖基础设施（文档、脚本、模板）。
+当前收录 4 个技能：教育类 3 个（智慧树、知到、iTEST 助手）与平台类 1 个（夸克分享技能安装器），完整列表见 [INDEX.md](INDEX.md)。技能版权归各作者，仓库根目录的 MIT 许可仅覆盖基础设施（文档、脚本、模板）。
 
 ## 分类约定
 

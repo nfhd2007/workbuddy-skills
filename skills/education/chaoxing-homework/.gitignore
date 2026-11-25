@@ -1,6 +1,0 @@
-# 运行产物（含用户作业数据，不要提交）
-cx_*.json
-cx_*.png
-.cx/
-answers/*.json
-*.log

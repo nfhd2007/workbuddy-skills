@@ -1,17 +1,8 @@
 {
   "repo": "nfhd2007/workbuddy-skills",
   "generated_by": "scripts/build_index.py",
-  "count": 5,
+  "count": 4,
   "skills": [
-    {
-      "name": "chaoxing-homework",
-      "display_name": "学习通作业助手",
-      "description": "通过 CDP 接管用户已登录的 Edge 浏览器，在学习通（超星）网页版中自动定位指定课程作业，跨新旧两代页面模板抽取题目、作答客观题与文本题；对文本答案做 AI 味与 AI…",
-      "version": "1.0.0",
-      "category": "education",
-      "author": "薄肌男孩",
-      "path": "skills/education/chaoxing-homework"
-    },
     {
       "name": "hike-course-assistant",
       "display_name": "智慧树课程助手",

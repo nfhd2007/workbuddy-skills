@@ -10,3 +10,4 @@
 - 生成初始 `INDEX.md` 与 `skills.json`
 - 收录 5 个技能：`itest-assistant`、`chaoxing-homework`、`hike-course-assistant`、`zhidao-course-assistant`（`education/`）与 `quark-share-skill-installer`（`platform/`）
 - 收录前完成脱敏：移除 `_skillhub_meta.json`、`shots/`、`audio/`、`node_modules/`、`.archive/`、`.cx/` 等安装与运行时数据，本机绝对路径改为泛化描述，补齐缺失的 `author`
+- 移除 `skills/education/chaoxing-homework`（学习通作业助手）；`INDEX.md` 与 `skills.json` 同步更新为 4 个技能
