@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-28
+
+- 新增 `skills/education/zhihuishu-mastery-assistant`（知到/智慧树掌握度助手 v1.3.0）：浏览器工具 / 已登录会话 / 桌面动作层缺失时按只读或离线演练通道继续交付，附 `references/offline.md` 离线演练手册
+- 提交前按仓库规范脱敏：实测记录中的真实姓名改为占位描述
+- `INDEX.md` 与 `skills.json` 由 `scripts/build_index.py` 重新生成，更新为 5 个技能
+
 ## 2026-11-25
 
 - 初始化仓库骨架：README、目录与分类约定、`.gitignore`、`.gitattributes`、MIT 许可

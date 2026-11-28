@@ -1,7 +1,7 @@
 {
   "repo": "nfhd2007/workbuddy-skills",
   "generated_by": "scripts/build_index.py",
-  "count": 4,
+  "count": 5,
   "skills": [
     {
       "name": "hike-course-assistant",
@@ -38,6 +38,15 @@
       "category": "education",
       "author": "nfhd2007",
       "path": "skills/education/zhidao-course-assistant"
+    },
+    {
+      "name": "zhihuishu-mastery-assistant",
+      "display_name": "知到/智慧树掌握度助手",
+      "description": "知到/智慧树掌握度助手：默认优先使用 WorkBuddy Edge 扩展程序接管用户本人已登录的 Edge 会话（内置浏览器 IAB 不共享登录态、无 user_tabs，仅…",
+      "version": "1.3.0",
+      "category": "education",
+      "author": "WorkBuddy",
+      "path": "skills/education/zhihuishu-mastery-assistant"
     }
   ]
 }
