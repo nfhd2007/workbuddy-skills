@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-28 (v1.3.1)
+
+- 修复 `skills/education/zhihuishu-mastery-assistant` 文件质量检测驳回项：`references/tooling.md` 曾引用不存在的 `preflight.py`（`prepare --json` / `env_file` 口径为跨技能复制残留），已改为对齐本技能真实机制（`scripts/cleanup_screenshots.py` 的运行时动态路径解析），`references/environment.md` 同源残留一并清除。
+- `scripts/lint.py` 新增「文档引用的 .py 脚本必须内置于 scripts/」检查，与平台「内置文件缺失」检测口径对齐，并以坏样本回归验证可拦截。
+- 版本号 v1.3.0 → v1.3.1；`INDEX.md` / `skills.json` 由 `scripts/build_index.py` 重新生成。
+
 ## 2026-11-28
 
 - 新增 `skills/education/zhihuishu-mastery-assistant`（知到/智慧树掌握度助手 v1.3.0）：浏览器工具 / 已登录会话 / 桌面动作层缺失时按只读或离线演练通道继续交付，附 `references/offline.md` 离线演练手册

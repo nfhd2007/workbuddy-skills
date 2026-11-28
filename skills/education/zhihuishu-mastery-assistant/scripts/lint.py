@@ -4,9 +4,12 @@
     python scripts/lint.py [--skill-dir <路径>]
 
 退出码 0 才可打包 / 发布。改版时防止把阶段 P、安全边界、提交授权、
-免考跳过、断点续跑、Edge 扩展优先、截图收尾自动清理，以及 v1.3.0 新增的
+免考跳过、断点续跑、Edge 扩展优先、截图收尾自动清理，以及 v1.3.x 新增的
 交付优先原则、按提问范围自适应汇报、route=offline / channel=offline 降级路径、
 离线演练交付手册这些关键能力弄丢（借鉴 iTEST 助手 lint.js 的思路）。
+
+v1.3.1 起额外校验「文档引用的 .py 脚本必须内置于 scripts/」——与开放平台
+「内置文件缺失」检测口径对齐，防止从其它技能复制口径时残留不存在的脚本名。
 """
 
 import argparse
@@ -59,7 +62,7 @@ KEYWORDS = [
     ("不整目录清空", "禁止整目录删除"),
     ("clipboard-images", "用户剪贴板图片保护"),
     ("--keep", "只列不删开关"),
-    # v1.3.0：环境缺失不阻断交付，离线演练为一等交付路径
+    # v1.3.x：环境缺失不阻断交付，离线演练为一等交付路径
     ("交付优先原则", "环境缺失不阻断交付"),
     ("按提问范围自适应", "汇报不夹带固定模板"),
     ("route=offline", "工具缺失时的合法继续路径"),
@@ -192,6 +195,36 @@ def main():
         if name not in text:
             warnings.append("SKILL.md 未提及 %s" % name)
 
+    # 文档引用的脚本必须内置（对齐开放平台「内置文件缺失」检测口径）。
+    # 扫描 SKILL.md 与 references/*.md 里出现的所有以 .py 结尾的文件名 token，
+    # 逐个确认 scripts/ 下存在同名文件。从其它技能复制口径时残留的不存在
+    # 脚本名会被这一项拦下，而不是等平台审核驳回；本文件不写出具体脚本名，
+    # 避免自身成为新的悬空引用来源。
+    doc_files = [("SKILL.md", text)]
+    ref_dir = os.path.join(root, "references")
+    if os.path.isdir(ref_dir):
+        for fn in sorted(os.listdir(ref_dir)):
+            if fn.endswith(".md"):
+                with open(os.path.join(ref_dir, fn), "r", encoding="utf-8") as f:
+                    doc_files.append(("references/" + fn, f.read()))
+    py_token = re.compile(r"(?<![A-Za-z0-9_-])([A-Za-z0-9_./-]+\.py)\b")
+    md_token = re.compile(r"`(references/[A-Za-z0-9_-]+\.md)`")
+    cited_py = {}
+    for doc_name, dtext in doc_files:
+        for mt in py_token.finditer(dtext):
+            base = os.path.basename(mt.group(1))
+            cited_py.setdefault(base, set()).add(doc_name)
+        for mt in md_token.finditer(dtext):
+            rel = mt.group(1)
+            if not os.path.exists(os.path.join(root, rel.replace("/", os.sep))):
+                errors.append("%s 引用了不存在的资源 %s" % (doc_name, rel))
+    for base in sorted(cited_py):
+        if not os.path.exists(os.path.join(root, "scripts", base)):
+            errors.append(
+                "文档引用了未内置的脚本 scripts/%s（引用方：%s）——平台会判「内置文件缺失」，"
+                "请删除该引用或把脚本放进 scripts/" %
+                (base, ", ".join(sorted(cited_py[base]))))
+
     for w in warnings:
         print("[警告] %s" % w)
     for e in errors:
@@ -199,8 +232,9 @@ def main():
     if errors:
         print("\n自检未通过：%d 项错误、%d 项警告" % (len(errors), len(warnings)))
         return 1
-    print("\n自检通过：%d 项关键口径齐全，资源完整（%d 项警告）" %
-          (len(KEYWORDS), len(warnings)))
+    print("\n自检通过：%d 项关键口径齐全，资源完整（%d 项警告）；"
+          "文档引用的 %d 个脚本均已内置于 scripts/" %
+          (len(KEYWORDS), len(warnings), len(cited_py)))
     return 0
 
 
